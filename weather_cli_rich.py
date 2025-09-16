@@ -27,7 +27,8 @@ except ImportError:
     raise SystemExit(1)
 
 # ---------- CONFIG ----------
-OPENWEATHER_KEY = "REMOVED_OPENWEATHER_KEY"  # <<< your key
+import os
+OPENWEATHER_KEY = os.environ.get("OPENWEATHER_KEY", "").strip()
 USE_OWM = bool(OPENWEATHER_KEY)
 CFG_PATH = os.path.expanduser("~/.weather_cfg.json")
 DEFAULT_CITY = "London"
